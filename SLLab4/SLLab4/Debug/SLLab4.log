@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\asvle\source\repos\sllab4\sllab4\templatearrays.h(32): warning C4715: 'Array<int>::operator[]': not all control paths return a value
+c:\users\asvle\source\repos\sllab4\sllab4\templatearrays.h(32): warning C4715: 'Array<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::operator[]': not all control paths return a value
+c:\users\asvle\source\repos\sllab4\sllab4\templatearrays.h(32): warning C4715: 'Array<double>::operator[]': not all control paths return a value
+c:\users\asvle\source\repos\sllab4\sllab4\templatearrays.h(32): warning C4715: 'Array<char>::operator[]': not all control paths return a value
+  SLLab4.vcxproj -> c:\Users\asvle\source\repos\SLLab4\Debug\SLLab4.exe
