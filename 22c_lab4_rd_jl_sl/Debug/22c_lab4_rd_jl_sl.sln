@@ -1,0 +1,169 @@
+//Robert Dyer
+//Manish Goel , CIS 22C Winter 18
+//Lab 4
+//Partners: John Le and Stephen Lee
+//
+
+//Lab 4 Pseudocode
+
+//1. 
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <string>
+#include <fstream>
+
+#include "tempArray.h"
+#include "SortingMethods.h"
+
+using namespace std;
+
+const int SORT_MAX_SIZE = 32;
+
+int main()
+{
+	ofstream myfile;
+	string type;
+	string sort;
+	int dataitems;
+
+	myfile.open("output.txt");
+	cout << "Enter the type of data items that will be entered. string, int, double, or char" << endl << endl;
+	cin >> type;
+	cin.ignore();
+	cout << endl << endl;
+
+	cout << "Enter the number of data items that will be entered" << endl << endl;
+	cin >> dataitems;
+	cin.ignore();
+	cout << endl << endl;
+
+	int n = dataitems - 1;
+
+	if (dataitems <= 0)
+	{
+		cout << "Invalid dataitem entered" << endl << endl;
+	}
+
+	else if (type == "string")
+	{
+		Array<string> arrays(dataitems);
+		Array<string> *arraysptr = &arrays;
+		Array<string> *selectCopy = &arrays;
+		Array<string> *insertCopy = &arrays;
+		Array<string> *quickCopy = &arrays;
+		Array<string> *mergeCopy = &arrays;
+
+		for (int x = 0; x < dataitems; x++)
+		{
+			string inputted;
+			cout << "Enter the " << x + 1 << "th string" << endl << endl;
+			cin >> inputted;
+			cout << endl << endl;
+			arrays[x] = inputted;
+		}
+
+		cout << "Array contents as entered:" << endl << endl;
+
+		print(arraysptr, dataitems);
+
+		cout << endl << endl;
+
+		////Selection Sort
+		//cout << "Selection Sort: " << endl << endl;
+		//myfile << "Selection Sort: " << endl << endl;
+		//selectionSort(dataitems, selectCopy);
+		//print(selectCopy, dataitems);
+		//cout << endl << endl;
+
+		////Insertion Sort
+		//cout << "Insertion Sort: " << endl << endl;
+		//myfile << "Insertion Sort: " << endl << endl;
+		//insertionSort(insertCopy, dataitems);
+		//print(insertCopy, dataitems);
+		//cout << endl << endl;
+
+		//Quick Sort
+		cout << "Quick Sort: " << endl;
+		myfile << "Quick Sort: " << endl;
+		quickSort(quickCopy, 0, dataitems);
+		print(quickCopy, dataitems);
+
+		//Merge Sort
+		cout << "Merge Sort: " << endl << endl;
+		myfile << "Merge Sort: " << endl << endl;
+		mergeSort(mergeCopy, 0, n);
+		print(mergeCopy, dataitems);
+		cout << endl << endl;
+
+	}
+
+	else if (type == "int")
+	{
+		Array<int> arrays(dataitems);
+		Array<int> *quickCopy = &arrays;
+		Array<int> *mergeCopy = &arrays;
+		for (int x = 0; x < dataitems; x++)
+		{
+			int inputted;
+			cout << "Enter the " << x + 1 << "th number" << endl;
+			cin >> inputted;
+			arrays[x] = inputted;
+		}
+		//cout << "Merge Sort: " << endl;
+		//myfile << "Merge Sort: " << endl;
+		//mergeSort(mergeCopy, 0, n);
+		//print(mergeCopy, dataitems);
+		cout << "Quick Sort: " << endl;
+		myfile << "Quick Sort: " << endl;
+		quickSort(quickCopy, 0, n);
+		print(quickCopy, dataitems);
+	}
+
+	else if (type == "double")
+	{
+		Array<double> arrays(dataitems);
+		Array<double> *quickCopy = &arrays;
+		for (int x = 0; x < dataitems; x++)
+		{
+			double inputted;
+			cout << "Enter the " << x + 1 << "th number" << endl;
+			cin >> inputted;
+			arrays[x] = inputted;
+		}
+		cout << "Quick Sort: " << endl;
+		myfile << "Quick Sort: " << endl;
+		quickSort(quickCopy, 0, n);
+		print(quickCopy, dataitems);
+	}
+
+	else if (type == "char")
+	{
+		Array<char> arrays(dataitems);
+		Array<char> *quickCopy = &arrays;
+		for (int x = 0; x < dataitems; x++)
+		{
+			char inputted;
+			cout << "Enter the " << x + 1 << "th char" << endl;
+			cin >> inputted;
+			arrays[x] = inputted;
+		}
+		cout << "Quick Sort: " << endl;
+		myfile << "Quick Sort: " << endl;
+		quickSort(quickCopy, 0, n);
+		print(quickCopy, dataitems);
+	}
+
+	else
+	{
+		cout << "you did not enter a data type." << endl;
+	}
+
+	system("pause");
+}
